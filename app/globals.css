@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-primary: #12151A;
+  --bg-elevated: #1A1E26;
+  --bg-surface: #262C36;
+  --text-primary: #F7F8FA;
+  --text-secondary: #C2CADB;
+  --text-muted: #94A0B8;
+  --accent-gold: #F5B041;
+  --accent-gold-strong: #D99B26;
+  --border-steel: rgba(194, 202, 219, 0.16);
+}
+
+html.light {
+  --bg-primary: #F7F8FA;
+  --bg-elevated: #FFFFFF;
+  --bg-surface: #EDF0F5;
+  --text-primary: #12151A;
+  --text-secondary: #262C36;
+  --text-muted: #4E596D;
+  --accent-gold: #B87D14;
+  --accent-gold-strong: #925F0E;
+  --border-steel: rgba(18, 21, 26, 0.14);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    overflow-x: hidden;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  /* Respect user motion preferences (Section 2 & 4 requirement) */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    ::before,
+    ::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* Subtle industrial grid background */
+.bg-industrial-grid {
+  background-size: 36px 36px;
+  background-image: 
+    linear-gradient(to right, rgba(194, 202, 219, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(194, 202, 219, 0.05) 1px, transparent 1px);
+}
